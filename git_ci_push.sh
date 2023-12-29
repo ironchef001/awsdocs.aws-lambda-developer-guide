@@ -1,0 +1,1 @@
+git aa && git ci -m 'upd' && git push
