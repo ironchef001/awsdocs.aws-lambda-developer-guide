@@ -1,5 +1,13 @@
 # Blank function (Python)
 
+## My Fix
+Add following dependency to the file, `/blank-python/function/requirements.txt`    
+> `urllib3==1.26.16`
+
+Issue reported: [python - AWS lambda throwing import error because of URLLIB - Stack Overflow](https://stackoverflow.com/questions/76189815/aws-lambda-throwing-import-error-because-of-urllib)
+
+---
+
 ![Architecture](/sample-apps/blank-python/images/sample-blank-python.png)
 
 The project source includes function code and supporting resources:
