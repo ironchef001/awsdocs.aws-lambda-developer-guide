@@ -74,3 +74,32 @@ Choose a node in the main function graph. Then choose **View traces** to see a l
 To delete the application, run `5-cleanup.sh`.
 
     blank-python$ ./5-cleanup.sh
+
+
+# Run unit test: 
+file: function/lambda_function.test.py  
+
+modify file: function/lambda_function.py
+from
+```python
+# original
+# client = boto3.client('lambda')
+# client.get_account_settings()
+```
+to
+```python
+# modify to test local to pass profile name
+session = boto3.Session(profile_name='ic-admin')
+client = session.client('lambda')
+client.get_account_settings()
+```
+
+then run
+```bash
+cp ./event.json function/
+cd function
+
+aws sso login --profile ic-admin
+
+python lambda_function.test.py
+```

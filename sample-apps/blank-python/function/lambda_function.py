@@ -9,7 +9,13 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 patch_all()
 
-client = boto3.client('lambda')
+# original
+# client = boto3.client('lambda')
+# client.get_account_settings()
+
+# modify to test local to pass profile name
+session = boto3.Session(profile_name='ic-admin')
+client = session.client('lambda')
 client.get_account_settings()
 
 def lambda_handler(event, context):
